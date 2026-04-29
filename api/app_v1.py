@@ -1,10 +1,17 @@
 import json
+import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+logger = logging.getLogger("aidc_poc_api")
 
 BASE_DIR = Path.home() / "aidc-poc"
 TESTS_DIR = BASE_DIR / "tests"
@@ -39,15 +46,22 @@ def get_supported_scenario_ids():
 
 
 def validate_required_files():
+    logger.info("Starting required response file validation")
     load_json(HEALTH_RESPONSE_PATH)
     load_json(SUPPORTED_SCENARIOS_PATH)
 
-    for scenario_id in get_supported_scenario_ids():
+    scenario_ids = get_supported_scenario_ids()
+    logger.info("Validating response files for %d scenarios", len(scenario_ids))
+
+    for scenario_id in scenario_ids:
         load_json(TESTS_DIR / f"{scenario_id}_hall_summary_v1.json")
         load_json(TESTS_DIR / f"{scenario_id}_rack_records_response_v1.json")
 
+    logger.info("Required response file validation completed successfully")
+
 
 def unknown_scenario_response(scenario_id: str):
+    logger.warning("Unknown scenario requested: %s", scenario_id)
     return JSONResponse(
         status_code=404,
         content={
@@ -62,8 +76,11 @@ def unknown_scenario_response(scenario_id: str):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    logger.info("API startup initiated")
     validate_required_files()
+    logger.info("API startup validation passed")
     yield
+    logger.info("API shutdown complete")
 
 
 app = FastAPI(title="AIDC POC API", version="v1", lifespan=lifespan)
