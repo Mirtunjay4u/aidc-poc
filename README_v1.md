@@ -1,4 +1,4 @@
-# AIDC POC README v1
+# AIDC POC README.md
 
 ## Purpose
 Phase 1 backend/API prototype for synthetic AIDC scenario simulation and local API validation.
