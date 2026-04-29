@@ -2,7 +2,8 @@ import json
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 
 BASE_DIR = Path.home() / "aidc-poc"
@@ -46,6 +47,19 @@ def validate_required_files():
         load_json(TESTS_DIR / f"{scenario_id}_rack_records_response_v1.json")
 
 
+def unknown_scenario_response(scenario_id: str):
+    return JSONResponse(
+        status_code=404,
+        content={
+            "error": {
+                "code": "unknown_scenario",
+                "message": "Unknown scenario_id",
+                "scenario_id": scenario_id,
+            }
+        },
+    )
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     validate_required_files()
@@ -71,7 +85,7 @@ def get_hall_summary(scenario_id: str):
     try:
         return load_json(path)
     except FileNotFoundError:
-        raise HTTPException(status_code=404, detail=f"Unknown scenario_id: {scenario_id}")
+        return unknown_scenario_response(scenario_id)
 
 
 @app.get("/hall/racks/{scenario_id}")
@@ -80,4 +94,4 @@ def get_hall_racks(scenario_id: str):
     try:
         return load_json(path)
     except FileNotFoundError:
-        raise HTTPException(status_code=404, detail=f"Unknown scenario_id: {scenario_id}")
+        return unknown_scenario_response(scenario_id)
