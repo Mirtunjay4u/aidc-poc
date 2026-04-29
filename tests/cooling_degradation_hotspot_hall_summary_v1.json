@@ -1,0 +1,13 @@
+{
+  "scenario_id": "cooling_degradation_hotspot",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "status_counts": {
+    "normal": 0,
+    "warning": 0,
+    "critical": 8
+  },
+  "max_inlet_temp_c": 36.0,
+  "max_power_kw": 9.0,
+  "max_gpu_util_pct": 80
+}

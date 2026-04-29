@@ -1,0 +1,26 @@
+{
+  "phase": "Phase 1",
+  "scenario_count": 4,
+  "scenarios": [
+    {
+      "id": "baseline_normal_operation",
+      "name": "Baseline normal operation",
+      "description": "Representative hall operates in normal condition with stable power, temperature, and GPU utilization."
+    },
+    {
+      "id": "ai_workload_surge",
+      "name": "AI workload surge",
+      "description": "Selected racks show higher GPU utilization, increased power draw, and moderate temperature rise."
+    },
+    {
+      "id": "cooling_degradation_hotspot",
+      "name": "Cooling degradation / hotspot condition",
+      "description": "Cooling health degrades in a selected zone, increasing inlet temperature and hotspot risk."
+    },
+    {
+      "id": "workload_redistribution",
+      "name": "Workload redistribution",
+      "description": "Load is shifted across selected racks, reducing stress in one area and increasing it in another."
+    }
+  ]
+}

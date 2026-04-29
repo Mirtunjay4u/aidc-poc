@@ -1,0 +1,51 @@
+{
+  "phase": "Phase 1",
+  "schema_name": "telemetry_schema_v1",
+  "fields": [
+    {
+      "name": "rack_id",
+      "type": "string",
+      "description": "Unique rack identifier"
+    },
+    {
+      "name": "zone_id",
+      "type": "string",
+      "description": "Logical zone identifier such as compute, cooling, or power"
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": "Event timestamp in ISO 8601 format"
+    },
+    {
+      "name": "inlet_temp_c",
+      "type": "float",
+      "description": "Rack inlet temperature in degree Celsius"
+    },
+    {
+      "name": "power_kw",
+      "type": "float",
+      "description": "Rack power draw in kilowatts"
+    },
+    {
+      "name": "gpu_util_pct",
+      "type": "integer",
+      "description": "GPU utilization percentage"
+    },
+    {
+      "name": "cooling_health",
+      "type": "string",
+      "description": "Cooling state: nominal, degraded, or failed"
+    },
+    {
+      "name": "hotspot_risk",
+      "type": "string",
+      "description": "Hotspot risk level: low, medium, or high"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "description": "Overall rack state: normal, warning, or critical"
+    }
+  ]
+}

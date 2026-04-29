@@ -1,0 +1,13 @@
+{
+  "scenario_id": "workload_redistribution",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "status_counts": {
+    "normal": 3,
+    "warning": 5,
+    "critical": 0
+  },
+  "max_inlet_temp_c": 30.0,
+  "max_power_kw": 9.5,
+  "max_gpu_util_pct": 85
+}

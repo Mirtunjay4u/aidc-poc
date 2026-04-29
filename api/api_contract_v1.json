@@ -1,0 +1,25 @@
+{
+  "version": "v1",
+  "endpoints": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "description": "Returns service health status"
+    },
+    {
+      "path": "/hall/summary/{scenario_id}",
+      "method": "GET",
+      "description": "Returns hall-level summary for the requested scenario"
+    },
+    {
+      "path": "/hall/racks/{scenario_id}",
+      "method": "GET",
+      "description": "Returns evaluated rack-level records for the requested scenario"
+    },
+    {
+      "path": "/scenarios",
+      "method": "GET",
+      "description": "Returns the list of supported Phase 1 scenarios"
+    }
+  ]
+}

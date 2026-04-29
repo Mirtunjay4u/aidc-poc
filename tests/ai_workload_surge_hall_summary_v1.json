@@ -1,0 +1,13 @@
+{
+  "scenario_id": "ai_workload_surge",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "status_counts": {
+    "normal": 0,
+    "warning": 4,
+    "critical": 4
+  },
+  "max_inlet_temp_c": 31.0,
+  "max_power_kw": 10.5,
+  "max_gpu_util_pct": 95
+}

@@ -1,0 +1,11 @@
+{
+  "service": "aidc-poc-api",
+  "version": "v1",
+  "status": "healthy",
+  "available_endpoints": [
+    "/health",
+    "/hall/summary/{scenario_id}",
+    "/hall/racks/{scenario_id}",
+    "/scenarios"
+  ]
+}

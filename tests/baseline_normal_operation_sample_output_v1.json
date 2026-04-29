@@ -1,0 +1,90 @@
+[
+  {
+    "rack_id": "R01",
+    "zone_id": "compute",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 22.0,
+    "power_kw": 4.5,
+    "gpu_util_pct": 35,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R02",
+    "zone_id": "compute",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 22.57,
+    "power_kw": 4.79,
+    "gpu_util_pct": 37,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R03",
+    "zone_id": "compute",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 23.14,
+    "power_kw": 5.07,
+    "gpu_util_pct": 40,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R04",
+    "zone_id": "compute",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 23.71,
+    "power_kw": 5.36,
+    "gpu_util_pct": 43,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R05",
+    "zone_id": "cooling",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 24.29,
+    "power_kw": 5.64,
+    "gpu_util_pct": 46,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R06",
+    "zone_id": "cooling",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 24.86,
+    "power_kw": 5.93,
+    "gpu_util_pct": 49,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R07",
+    "zone_id": "power",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 25.43,
+    "power_kw": 6.21,
+    "gpu_util_pct": 52,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  },
+  {
+    "rack_id": "R08",
+    "zone_id": "power",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "inlet_temp_c": 26.0,
+    "power_kw": 6.5,
+    "gpu_util_pct": 55,
+    "cooling_health": "nominal",
+    "hotspot_risk": "low",
+    "status": "normal"
+  }
+]

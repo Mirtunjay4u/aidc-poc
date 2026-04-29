@@ -1,0 +1,19 @@
+{
+  "temperature_c": {
+    "normal_max": 26.0,
+    "warning_max": 30.0
+  },
+  "power_kw": {
+    "normal_max": 6.5,
+    "warning_max": 9.5
+  },
+  "gpu_util_pct": {
+    "normal_max": 55,
+    "warning_max": 85
+  },
+  "status_logic": {
+    "normal": "All key metrics within normal thresholds",
+    "warning": "One or more key metrics exceed normal threshold but remain within warning range",
+    "critical": "One or more key metrics exceed warning threshold or cooling health is degraded/failed with elevated thermal risk"
+  }
+}

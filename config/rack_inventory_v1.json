@@ -1,0 +1,17 @@
+{
+  "hall_id": "hall_a",
+  "zones": [
+    {
+      "zone_id": "compute",
+      "racks": ["R01", "R02", "R03", "R04"]
+    },
+    {
+      "zone_id": "cooling",
+      "racks": ["R05", "R06"]
+    },
+    {
+      "zone_id": "power",
+      "racks": ["R07", "R08"]
+    }
+  ]
+}

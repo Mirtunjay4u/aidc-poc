@@ -1,0 +1,103 @@
+{
+  "scenario_id": "ai_workload_surge",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "records": [
+    {
+      "rack_id": "R01",
+      "zone_id": "compute",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 26.0,
+      "power_kw": 7.0,
+      "gpu_util_pct": 75,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "warning"
+    },
+    {
+      "rack_id": "R02",
+      "zone_id": "compute",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 26.71,
+      "power_kw": 7.5,
+      "gpu_util_pct": 77,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "warning"
+    },
+    {
+      "rack_id": "R03",
+      "zone_id": "compute",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 27.43,
+      "power_kw": 8.0,
+      "gpu_util_pct": 80,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "warning"
+    },
+    {
+      "rack_id": "R04",
+      "zone_id": "compute",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 28.14,
+      "power_kw": 8.5,
+      "gpu_util_pct": 83,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "warning"
+    },
+    {
+      "rack_id": "R05",
+      "zone_id": "cooling",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 28.86,
+      "power_kw": 9.0,
+      "gpu_util_pct": 86,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "critical"
+    },
+    {
+      "rack_id": "R06",
+      "zone_id": "cooling",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 29.57,
+      "power_kw": 9.5,
+      "gpu_util_pct": 89,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "critical"
+    },
+    {
+      "rack_id": "R07",
+      "zone_id": "power",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 30.29,
+      "power_kw": 10.0,
+      "gpu_util_pct": 92,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "critical"
+    },
+    {
+      "rack_id": "R08",
+      "zone_id": "power",
+      "timestamp": "2026-06-01T10:00:00Z",
+      "inlet_temp_c": 31.0,
+      "power_kw": 10.5,
+      "gpu_util_pct": 95,
+      "cooling_health": "nominal",
+      "hotspot_risk": "medium",
+      "status": "warning",
+      "evaluated_status": "critical"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "baseline_normal_operation",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "status_counts": {
+    "normal": 8,
+    "warning": 0,
+    "critical": 0
+  },
+  "max_inlet_temp_c": 26.0,
+  "max_power_kw": 6.5,
+  "max_gpu_util_pct": 55
+}
