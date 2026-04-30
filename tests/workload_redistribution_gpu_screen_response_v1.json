@@ -1,0 +1,100 @@
+{
+  "scenario_id": "workload_redistribution",
+  "hall_id": "hall_a",
+  "rack_count": 8,
+  "summary": {
+    "avg_gpu_util_pct": 62.12,
+    "max_gpu_util_pct": 85,
+    "min_gpu_util_pct": 40,
+    "high_gpu_rack_count": 1,
+    "critical_rack_count": 0,
+    "warning_rack_count": 5,
+    "total_power_kw": 58.0,
+    "max_power_kw": 9.5,
+    "hottest_rack_id": "R08",
+    "highest_gpu_rack_id": "R08",
+    "optimization_message": "Workload redistribution is active. Monitor shifted load and confirm rack status remains within warning bounds."
+  },
+  "rack_gpu_records": [
+    {
+      "rack_id": "R01",
+      "zone_id": "compute",
+      "gpu_util_pct": 40,
+      "power_kw": 5.0,
+      "inlet_temp_c": 24.0,
+      "evaluated_status": "normal",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "normal"
+    },
+    {
+      "rack_id": "R02",
+      "zone_id": "compute",
+      "gpu_util_pct": 46,
+      "power_kw": 5.64,
+      "inlet_temp_c": 24.86,
+      "evaluated_status": "normal",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "normal"
+    },
+    {
+      "rack_id": "R03",
+      "zone_id": "compute",
+      "gpu_util_pct": 52,
+      "power_kw": 6.29,
+      "inlet_temp_c": 25.71,
+      "evaluated_status": "normal",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "normal"
+    },
+    {
+      "rack_id": "R04",
+      "zone_id": "compute",
+      "gpu_util_pct": 59,
+      "power_kw": 6.93,
+      "inlet_temp_c": 26.57,
+      "evaluated_status": "warning",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "normal"
+    },
+    {
+      "rack_id": "R05",
+      "zone_id": "cooling",
+      "gpu_util_pct": 65,
+      "power_kw": 7.57,
+      "inlet_temp_c": 27.43,
+      "evaluated_status": "warning",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "normal"
+    },
+    {
+      "rack_id": "R06",
+      "zone_id": "cooling",
+      "gpu_util_pct": 72,
+      "power_kw": 8.21,
+      "inlet_temp_c": 28.29,
+      "evaluated_status": "warning",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "elevated"
+    },
+    {
+      "rack_id": "R07",
+      "zone_id": "power",
+      "gpu_util_pct": 78,
+      "power_kw": 8.86,
+      "inlet_temp_c": 29.14,
+      "evaluated_status": "warning",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "elevated"
+    },
+    {
+      "rack_id": "R08",
+      "zone_id": "power",
+      "gpu_util_pct": 85,
+      "power_kw": 9.5,
+      "inlet_temp_c": 30.0,
+      "evaluated_status": "warning",
+      "hotspot_risk": "medium",
+      "gpu_pressure_label": "high"
+    }
+  ]
+}
