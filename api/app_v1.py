@@ -17,6 +17,8 @@ BASE_DIR = Path.home() / "aidc-poc"
 TESTS_DIR = BASE_DIR / "tests"
 HEALTH_RESPONSE_PATH = TESTS_DIR / "health_response_v1.json"
 SUPPORTED_SCENARIOS_PATH = TESTS_DIR / "supported_scenarios_v1.json"
+CURRENT_SCENARIO_STATE_PATH = TESTS_DIR / "current_scenario_state_v1.json"
+DEFAULT_SCENARIO_ID = "baseline_normal_operation"
 
 
 def load_json(path: Path):
@@ -45,10 +47,30 @@ def get_supported_scenario_ids():
     return scenario_ids
 
 
+def is_supported_scenario(scenario_id: str) -> bool:
+    return scenario_id in get_supported_scenario_ids()
+
+
+def write_current_scenario_state(scenario_id: str, status: str, message: str):
+    state = {
+        "current_scenario_id": scenario_id,
+        "status": status,
+        "message": message,
+    }
+
+    with open(CURRENT_SCENARIO_STATE_PATH, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+        f.write("\n")
+
+    logger.info("Scenario state updated: %s", state)
+    return state
+
+
 def validate_required_files():
     logger.info("Starting required response file validation")
     load_json(HEALTH_RESPONSE_PATH)
     load_json(SUPPORTED_SCENARIOS_PATH)
+    load_json(CURRENT_SCENARIO_STATE_PATH)
 
     scenario_ids = get_supported_scenario_ids()
     logger.info("Validating response files for %d scenarios", len(scenario_ids))
@@ -108,6 +130,32 @@ def get_health():
 @app.get("/scenarios")
 def get_scenarios():
     return load_json(SUPPORTED_SCENARIOS_PATH)
+
+
+@app.get("/scenario/current")
+def get_current_scenario():
+    return load_json(CURRENT_SCENARIO_STATE_PATH)
+
+
+@app.post("/scenario/{scenario_id}/start")
+def start_scenario(scenario_id: str):
+    if not is_supported_scenario(scenario_id):
+        return unknown_scenario_response(scenario_id)
+
+    return write_current_scenario_state(
+        scenario_id=scenario_id,
+        status="running",
+        message=f"Scenario started: {scenario_id}",
+    )
+
+
+@app.post("/scenario/reset")
+def reset_scenario():
+    return write_current_scenario_state(
+        scenario_id=DEFAULT_SCENARIO_ID,
+        status="reset",
+        message="Scenario reset to baseline normal operation",
+    )
 
 
 @app.get("/hall/summary/{scenario_id}")

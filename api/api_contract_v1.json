@@ -20,6 +20,21 @@
       "path": "/scenarios",
       "method": "GET",
       "description": "Returns the list of supported Phase 1 scenarios"
+    },
+    {
+      "path": "/scenario/current",
+      "method": "GET",
+      "description": "Returns the current active scenario controller state"
+    },
+    {
+      "path": "/scenario/{scenario_id}/start",
+      "method": "POST",
+      "description": "Starts a supported scenario and updates the current scenario controller state"
+    },
+    {
+      "path": "/scenario/reset",
+      "method": "POST",
+      "description": "Resets the current scenario controller state to baseline normal operation"
     }
   ]
 }

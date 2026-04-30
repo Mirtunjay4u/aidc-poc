@@ -6,6 +6,9 @@
     "/health",
     "/hall/summary/{scenario_id}",
     "/hall/racks/{scenario_id}",
-    "/scenarios"
+    "/scenarios",
+    "/scenario/current",
+    "/scenario/{scenario_id}/start",
+    "/scenario/reset"
   ]
 }
