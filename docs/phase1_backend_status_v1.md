@@ -3,6 +3,11 @@
 ## Scope status
 Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation and initial scenario control endpoints.
 
+## Task completion position
+- B-04 Build scenario controller: Completed for Phase 1 file-backed control scope.
+- B-05 Build API layer: Completed for Phase 1 backend/API prototype scope.
+- B-06 Validate backend outputs on Brev: Completed and revalidated after Brev restart.
+
 ## Completed
 - Synthetic scenario data pipeline prepared
 - Rules evaluation implemented
@@ -36,6 +41,6 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 
 ## Next focus
 - Keep smoke-test validation running after every API change.
-- Update demo runbook to include the new startup and scenario control flow.
-- Prepare the next backend hardening increment only after documentation is aligned.
-- Do not start GPU screen implementation or Omniverse integration until their prerequisite scope/specification tasks are explicitly started.
+- Start the separate GPU screen definition task next, beginning with scope/content definition before implementation.
+- Do not start GPU feed/dashboard implementation until the GPU screen schema and content definition are explicitly prepared.
+- Do not start Omniverse integration until Santa Clara RTX workstation readiness and scene specification prerequisites are closed.
