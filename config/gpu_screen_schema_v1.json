@@ -1,0 +1,155 @@
+{
+  "phase": "Phase 1",
+  "schema_name": "gpu_screen_schema_v1",
+  "purpose": "Schema for the separate AI workload / GPU optimization screen response.",
+  "source_inputs": [
+    "tests/{scenario_id}_rack_records_response_v1.json",
+    "tests/{scenario_id}_hall_summary_v1.json",
+    "tests/current_scenario_state_v1.json"
+  ],
+  "response_fields": [
+    {
+      "name": "scenario_id",
+      "type": "string",
+      "description": "Scenario identifier used to build the GPU screen response."
+    },
+    {
+      "name": "hall_id",
+      "type": "string",
+      "description": "Representative hall identifier."
+    },
+    {
+      "name": "rack_count",
+      "type": "integer",
+      "description": "Number of racks represented in the response."
+    },
+    {
+      "name": "summary",
+      "type": "object",
+      "description": "GPU screen aggregate summary for the selected scenario."
+    },
+    {
+      "name": "rack_gpu_records",
+      "type": "array",
+      "description": "Rack-level GPU display records."
+    }
+  ],
+  "summary_fields": [
+    {
+      "name": "avg_gpu_util_pct",
+      "type": "float",
+      "description": "Average GPU utilization across all racks."
+    },
+    {
+      "name": "max_gpu_util_pct",
+      "type": "integer",
+      "description": "Maximum GPU utilization across all racks."
+    },
+    {
+      "name": "min_gpu_util_pct",
+      "type": "integer",
+      "description": "Minimum GPU utilization across all racks."
+    },
+    {
+      "name": "high_gpu_rack_count",
+      "type": "integer",
+      "description": "Number of racks with GPU pressure label high."
+    },
+    {
+      "name": "critical_rack_count",
+      "type": "integer",
+      "description": "Number of racks with evaluated_status critical."
+    },
+    {
+      "name": "warning_rack_count",
+      "type": "integer",
+      "description": "Number of racks with evaluated_status warning."
+    },
+    {
+      "name": "total_power_kw",
+      "type": "float",
+      "description": "Total rack power draw across the represented hall."
+    },
+    {
+      "name": "max_power_kw",
+      "type": "float",
+      "description": "Maximum rack-level power draw."
+    },
+    {
+      "name": "hottest_rack_id",
+      "type": "string",
+      "description": "Rack with the highest inlet temperature."
+    },
+    {
+      "name": "highest_gpu_rack_id",
+      "type": "string",
+      "description": "Rack with the highest GPU utilization."
+    },
+    {
+      "name": "optimization_message",
+      "type": "string",
+      "description": "Deterministic Phase 1 demo recommendation for the selected scenario."
+    }
+  ],
+  "rack_gpu_record_fields": [
+    {
+      "name": "rack_id",
+      "type": "string",
+      "description": "Rack identifier."
+    },
+    {
+      "name": "zone_id",
+      "type": "string",
+      "description": "Logical rack zone."
+    },
+    {
+      "name": "gpu_util_pct",
+      "type": "integer",
+      "description": "Rack GPU utilization percentage."
+    },
+    {
+      "name": "power_kw",
+      "type": "float",
+      "description": "Rack power draw in kilowatts."
+    },
+    {
+      "name": "inlet_temp_c",
+      "type": "float",
+      "description": "Rack inlet temperature in degrees Celsius."
+    },
+    {
+      "name": "evaluated_status",
+      "type": "string",
+      "description": "Rules-engine evaluated rack status."
+    },
+    {
+      "name": "hotspot_risk",
+      "type": "string",
+      "description": "Rack hotspot risk label."
+    },
+    {
+      "name": "gpu_pressure_label",
+      "type": "string",
+      "description": "Derived GPU pressure label: normal, elevated, or high."
+    }
+  ],
+  "gpu_pressure_rules": [
+    {
+      "label": "normal",
+      "condition": "gpu_util_pct < 70"
+    },
+    {
+      "label": "elevated",
+      "condition": "gpu_util_pct >= 70 and gpu_util_pct < 85"
+    },
+    {
+      "label": "high",
+      "condition": "gpu_util_pct >= 85"
+    }
+  ],
+  "planned_endpoint": {
+    "method": "GET",
+    "path": "/gpu/screen/{scenario_id}",
+    "description": "Returns file-backed GPU screen response for the requested scenario."
+  }
+}
