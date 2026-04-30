@@ -9,6 +9,7 @@
     "/scenarios",
     "/scenario/current",
     "/scenario/{scenario_id}/start",
-    "/scenario/reset"
+    "/scenario/reset",
+    "/gpu/screen/{scenario_id}"
   ]
 }

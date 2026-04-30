@@ -35,6 +35,11 @@
       "path": "/scenario/reset",
       "method": "POST",
       "description": "Resets the current scenario controller state to baseline normal operation"
+    },
+    {
+      "path": "/gpu/screen/{scenario_id}",
+      "method": "GET",
+      "description": "Returns file-backed GPU screen response for the requested scenario"
     }
   ]
 }

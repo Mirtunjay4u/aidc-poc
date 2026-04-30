@@ -78,6 +78,7 @@ def validate_required_files():
     for scenario_id in scenario_ids:
         load_json(TESTS_DIR / f"{scenario_id}_hall_summary_v1.json")
         load_json(TESTS_DIR / f"{scenario_id}_rack_records_response_v1.json")
+        load_json(TESTS_DIR / f"{scenario_id}_gpu_screen_response_v1.json")
 
     logger.info("Required response file validation completed successfully")
 
@@ -170,6 +171,15 @@ def get_hall_summary(scenario_id: str):
 @app.get("/hall/racks/{scenario_id}")
 def get_hall_racks(scenario_id: str):
     path = TESTS_DIR / f"{scenario_id}_rack_records_response_v1.json"
+    try:
+        return load_json(path)
+    except FileNotFoundError:
+        return unknown_scenario_response(scenario_id)
+
+
+@app.get("/gpu/screen/{scenario_id}")
+def get_gpu_screen(scenario_id: str):
+    path = TESTS_DIR / f"{scenario_id}_gpu_screen_response_v1.json"
     try:
         return load_json(path)
     except FileNotFoundError:

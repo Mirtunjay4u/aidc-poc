@@ -64,6 +64,19 @@ check_json_field "scenario count is 4" "data.get('scenario_count') == 4"
 check_status "baseline hall summary" "/hall/summary/baseline_normal_operation" "200"
 check_json_field "baseline hall summary scenario id" "data.get('scenario_id') == 'baseline_normal_operation'"
 
+check_status "baseline GPU screen" "/gpu/screen/baseline_normal_operation" "200"
+check_json_field "baseline GPU screen scenario id" "data.get('scenario_id') == 'baseline_normal_operation'"
+check_json_field "baseline GPU screen rack count" "data.get('rack_count') == 8"
+check_json_field "baseline GPU high rack count is zero" "data.get('summary', {}).get('high_gpu_rack_count') == 0"
+
+check_status "workload surge GPU screen" "/gpu/screen/ai_workload_surge" "200"
+check_json_field "workload surge GPU screen scenario id" "data.get('scenario_id') == 'ai_workload_surge'"
+check_json_field "workload surge GPU high rack count" "data.get('summary', {}).get('high_gpu_rack_count') == 4"
+
+check_status "unknown GPU screen scenario" "/gpu/screen/unknown_scenario" "404"
+check_json_field "unknown GPU screen error code" "data.get('error', {}).get('code') == 'unknown_scenario'"
+
+
 check_status "current scenario endpoint" "/scenario/current" "200"
 check_json_field "current scenario has scenario id" "data.get('current_scenario_id') is not None"
 
