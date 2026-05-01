@@ -19,6 +19,13 @@
   - cooling_degradation_hotspot
   - workload_redistribution
 
+## Separate GPU screen validation
+- GET /gpu/screen/baseline_normal_operation returned GPU screen response successfully
+- GET /gpu/screen/ai_workload_surge returned GPU screen response successfully
+- /health lists /gpu/screen/{scenario_id}
+- /gpu/screen/unknown_scenario returned HTTP 404 with structured unknown_scenario error
+- Smoke-test automation validates baseline GPU screen, workload surge GPU screen, and unknown GPU screen negative path
+
 ## Scenario controller validation
 - GET /scenario/current returned current scenario state
 - POST /scenario/ai_workload_surge/start updated current scenario to ai_workload_surge
@@ -37,10 +44,11 @@ The smoke-test script now validates:
 - Health endpoint
 - Scenario list endpoint
 - Baseline hall summary endpoint
+- Baseline and workload surge GPU screen endpoints
 - Scenario current/start/reset flow
 - Unknown scenario start error handling
 - Unknown hall summary scenario error handling
 - Unknown rack scenario error handling
 
 ## Conclusion
-Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup plus initial scenario controller behavior.
+Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, and the separate GPU screen backend/API endpoint.

@@ -1,7 +1,7 @@
 # AIDC POC README.md
 
 ## Purpose
-Phase 1 backend/API prototype for synthetic AIDC scenario simulation, local API validation, and initial file-backed scenario control.
+Phase 1 backend/API prototype for synthetic AIDC scenario simulation, local API validation, file-backed scenario control, and the separate GPU screen backend/API feed.
 
 ## Main folders
 - config/ - schema and inventory configuration
@@ -14,7 +14,7 @@ Phase 1 backend/API prototype for synthetic AIDC scenario simulation, local API 
 - docs/ - checkpoint, startup, runbook, and validation notes
 
 ## Current status
-Phase 1 backend/API prototype is validated for local runtime demo in the NVIDIA Brev environment. The API now supports standardized startup, health/scenario reads, hall and rack response retrieval, and initial file-backed scenario control.
+Phase 1 backend/API prototype is validated for local runtime demo in the NVIDIA Brev environment. The API now supports standardized startup, health/scenario reads, hall and rack response retrieval, file-backed scenario control, and a separate GPU screen backend/API response. The visual GPU dashboard UI is not yet built.
 
 ## Start API
 Run from Terminal 1:
@@ -36,6 +36,7 @@ Run from Terminal 2 while the API is running:
 - GET /scenario/current
 - POST /scenario/{scenario_id}/start
 - POST /scenario/reset
+- GET /gpu/screen/{scenario_id}
 
 ## Supported Phase 1 scenarios
 - baseline_normal_operation
@@ -49,3 +50,4 @@ Run from Terminal 2 while the API is running:
 - docs/api_validation_summary_v1.md
 - docs/api_progress_note_v1.md
 - docs/phase1_backend_status_v1.md
+- docs/gpu_screen_scope_v1.md

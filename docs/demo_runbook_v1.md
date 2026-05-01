@@ -1,7 +1,7 @@
 # Demo Runbook v1
 
 ## Objective
-Demonstrate the Phase 1 backend/API prototype in the local NVIDIA Brev environment using the standardized startup script and file-backed scenario controller.
+Demonstrate the Phase 1 backend/API prototype in the local NVIDIA Brev environment using the standardized startup script, file-backed scenario controller, and separate GPU screen backend/API response.
 
 ## Demo preparation
 1. Open Terminal 1 for the API server.
@@ -30,7 +30,7 @@ Run from Terminal 2 while the API is running:
 
 Expected result:
 - Smoke test completes successfully.
-- Health, scenario list, baseline summary, scenario controller, and negative-path checks pass.
+- Health, scenario list, baseline summary, GPU screen, scenario controller, and negative-path checks pass.
 
 ## Demo sequence
 
@@ -84,6 +84,14 @@ Purpose:
 Purpose:
 - Show rack-level evaluated telemetry records.
 
+### 8A. AI workload surge GPU screen response
+    curl http://127.0.0.1:8000/gpu/screen/ai_workload_surge
+
+Purpose:
+- Show the separate GPU screen backend response.
+- Highlight GPU utilization, high-GPU rack count, power impact, rack pressure, and redistribution guidance.
+- Confirm this is a separate decision-support flow, not live GPU scheduling or Omniverse scene binding.
+
 ### 9. Start cooling degradation hotspot scenario
     curl -X POST http://127.0.0.1:8000/scenario/cooling_degradation_hotspot/start
 
@@ -122,9 +130,10 @@ Purpose:
 - Confirm the demo returns to the baseline state.
 
 ## Negative-path validation
-Optional command:
+Optional commands:
 
     curl -i -X POST http://127.0.0.1:8000/scenario/unknown_scenario/start
+    curl -i http://127.0.0.1:8000/gpu/screen/unknown_scenario
 
 Expected:
 - HTTP 404
@@ -135,6 +144,7 @@ Expected:
 - Smoke test passes.
 - All read endpoints respond with expected JSON.
 - Scenario controller supports current, start, and reset behavior.
+- Separate GPU screen backend/API response is available for scenario-driven decision support.
 - Scenario outputs reflect the designed Phase 1 operating conditions.
 - Demo can be executed as a backend-only fallback while Santa Clara RTX / Omniverse readiness remains pending.
 

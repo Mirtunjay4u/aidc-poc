@@ -1,7 +1,7 @@
 # Phase 1 Backend Status v1
 
 ## Scope status
-Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation and initial scenario control endpoints.
+Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation, scenario control endpoints, and the separate GPU screen backend/API endpoint.
 
 ## Task completion position
 - B-04 Build scenario controller: Completed for Phase 1 file-backed control scope.
@@ -22,6 +22,10 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 - Smoke-test automation added
 - Standardized API startup script added
 - File-backed scenario controller endpoints added
+- GET /gpu/screen/{scenario_id} endpoint added and smoke-tested
+- GPU screen response artifacts generated for all four scenarios
+- GPU screen response generator added
+- Separate GPU screen scope and schema defined
 
 ## Live endpoints validated
 - GET /health
@@ -31,6 +35,7 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 - GET /scenario/current
 - POST /scenario/{scenario_id}/start
 - POST /scenario/reset
+- GET /gpu/screen/{scenario_id}
 
 ## Current implementation notes
 - Runtime is local to Brev for Phase 1 validation.
@@ -41,6 +46,7 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 
 ## Next focus
 - Keep smoke-test validation running after every API change.
-- Start the separate GPU screen definition task next, beginning with scope/content definition before implementation.
-- Do not start GPU feed/dashboard implementation until the GPU screen schema and content definition are explicitly prepared.
+- Align documentation and tracker language to show GPU backend/API is complete while visual GPU dashboard UI remains open.
+- Create scenario_acceptance_matrix_v1.md to convert endpoint availability into verifiable scenario correctness.
+- Prepare API contract v2, thermal/power rationale, and observability event model before additional UI work.
 - Do not start Omniverse integration until Santa Clara RTX workstation readiness and scene specification prerequisites are closed.
