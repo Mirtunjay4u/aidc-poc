@@ -9,7 +9,7 @@
 | Environment | NVIDIA Brev |
 | Implementation mode | File-backed deterministic scenario prototype |
 | Supporting flow | Separate AI workload and GPU resource optimization screen |
-| Current Git checkpoint | 5a46359 - Align documentation for structured API event logging |
+| Current Git checkpoint | 28d8e7a - Add GPU screen UI shell |
 | Purpose | Define the separate GPU screen layout, data mapping, operator interpretation model, and implementation boundary before dashboard build |
 
 ## 2. Objective
@@ -330,7 +330,7 @@ After UI implementation, validate the screen against:
 
 ## 17. Engineering Boundary
 
-The first implementation should be a deterministic local UI consuming the existing file-backed API.
+The first implementation has been created as a deterministic local UI consuming the existing file-backed API.
 
 Do not add:
 - live scheduler integration
@@ -340,12 +340,17 @@ Do not add:
 - external telemetry connectors
 - automatic optimization action
 
-Future enhancements can be considered only after the Phase 1 dashboard works reliably against the existing backend.
+Future enhancements should be considered only after the Phase 1 dashboard shell is visually reviewed, evidence-captured, and kept aligned with the existing backend.
 
 ## 18. Next Recommended Step
 
-After this UI definition is reviewed, the next controlled task should be:
+The first separate GPU screen UI shell has now been implemented and validated through the API smoke-test path.
 
-- build the first separate GPU screen UI shell
+Current implementation:
+- ui/gpu_screen_v1.html provides the lightweight local GPU screen shell.
+- GET /gpu/screen-ui serves the screen through FastAPI.
+- The UI consumes GET /gpu/screen/{scenario_id}.
+- Smoke testing validates the UI route and title.
 
-The UI shell should be built against the existing backend endpoint and validated scenario by scenario.
+Next controlled task:
+- update the project report/tracker and capture browser-level visual evidence during the next validation pass.

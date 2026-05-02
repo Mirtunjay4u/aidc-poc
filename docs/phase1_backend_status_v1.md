@@ -1,7 +1,7 @@
 # Phase 1 Backend Status v1
 
 ## Scope status
-Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation, scenario control endpoints, the separate GPU screen backend/API endpoint, and structured API event logging.
+Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation, scenario control endpoints, the separate GPU screen backend/API endpoint, structured API event logging, and the first lightweight GPU screen UI shell.
 
 ## Task completion position
 - B-04 Build scenario controller: Completed for Phase 1 file-backed control scope.
@@ -23,6 +23,8 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 - Standardized API startup script added
 - File-backed scenario controller endpoints added
 - GET /gpu/screen/{scenario_id} endpoint added and smoke-tested
+- GET /gpu/screen-ui route added and smoke-tested
+- First GPU screen UI shell implemented at ui/gpu_screen_v1.html
 - GPU screen response artifacts generated for all four scenarios
 - GPU screen response generator added
 - Separate GPU screen scope and schema defined
@@ -47,7 +49,7 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 ## Next focus
 - Keep smoke-test validation running after every API change.
 - Keep structured API event logging aligned as future endpoints or UI flows are added.
-- Define the separate GPU visual dashboard UI before implementation.
+- Perform browser-level visual review of the GPU screen UI shell and capture evidence.
 - Create Omniverse scene specification v1 before any Santa Clara RTX authoring work.
 - Prepare the demo evidence pack after the next UI or integration milestone.
 - Do not start Omniverse integration until Santa Clara RTX workstation readiness and scene specification prerequisites are closed.

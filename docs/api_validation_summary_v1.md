@@ -50,6 +50,14 @@ The smoke-test script now validates:
 - Unknown hall summary scenario error handling
 - Unknown rack scenario error handling
 
+## Separate GPU screen UI shell validation
+- First lightweight separate GPU screen UI shell implemented at ui/gpu_screen_v1.html.
+- FastAPI serves the UI shell at GET /gpu/screen-ui.
+- UI shell fetches scenario data from GET /gpu/screen/{scenario_id}.
+- Runtime validation confirmed /gpu/screen-ui returned HTTP 200.
+- Smoke-test automation now validates /gpu/screen-ui and confirms the UI title is present.
+- Structured log validation confirmed gpu_screen_ui_requested during UI route access.
+
 ## Structured API event logging validation
 - Structured event logging is implemented in api/app_v1.py.
 - Runtime validation confirmed structured startup events:
@@ -71,4 +79,4 @@ The smoke-test script now validates:
 - Smoke-test automation passed after structured logging was added.
 
 ## Conclusion
-Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, the separate GPU screen backend/API endpoint, scenario acceptance validation, and structured API event logging.
+Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, the separate GPU screen backend/API endpoint, first GPU screen UI shell, scenario acceptance validation, and structured API event logging.
