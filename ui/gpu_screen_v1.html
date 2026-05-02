@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIDC GPU Screen v1</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0e1b2e;
+      --panel2: #13243a;
+      --text: #e8f0fb;
+      --muted: #9fb0c4;
+      --line: #263a55;
+      --green: #28c76f;
+      --amber: #ffb020;
+      --red: #ff4d4f;
+      --blue: #64b5ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top left, #142846, var(--bg) 45%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 900px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      white-space: nowrap;
+    }
+
+    select,
+    button {
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    button {
+      cursor: pointer;
+      background: #1d67ab;
+      border-color: #2c84d8;
+      font-weight: 700;
+    }
+
+    .status-line {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(14, 27, 46, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .kpi-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .kpi-note {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 12px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      color: var(--muted);
+      background: var(--panel2);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .chip {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: capitalize;
+      background: #1c3656;
+      color: var(--text);
+    }
+
+    .normal,
+    .low {
+      background: var(--green);
+      color: #04140b;
+    }
+
+    .warning,
+    .elevated,
+    .medium {
+      background: var(--amber);
+      color: #221300;
+    }
+
+    .critical,
+    .high {
+      background: var(--red);
+      color: white;
+    }
+
+    .bar-wrap {
+      min-width: 110px;
+      height: 10px;
+      border: 1px solid var(--line);
+      background: #081426;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .bar {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--amber), var(--red));
+      width: 0%;
+    }
+
+    .side-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .rack-band {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .rack-tile {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .rack-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .guidance {
+      line-height: 1.55;
+      font-size: 16px;
+    }
+
+    .boundary {
+      margin-top: 14px;
+      border-left: 4px solid var(--blue);
+      background: rgba(100, 181, 255, 0.08);
+      border-radius: 10px;
+      color: var(--muted);
+      padding: 12px;
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .error {
+      border-color: var(--red);
+      color: #ffdede;
+    }
+
+    @media (max-width: 1100px) {
+      .header,
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="header">
+      <section>
+        <h1>AI Workload & GPU Resource Screen</h1>
+        <div class="subtitle">
+          Separate Phase 1 decision-support screen for GPU workload pressure, rack utilization,
+          power impact, thermal context, and redistribution guidance. This is not live scheduling,
+          not workload migration, and not Omniverse scene binding.
+        </div>
+      </section>
+
+      <section class="controls">
+        <label for="scenarioSelect">Scenario</label>
+        <select id="scenarioSelect">
+          <option value="baseline_normal_operation">Baseline Normal Operation</option>
+          <option value="ai_workload_surge">AI Workload Surge</option>
+          <option value="cooling_degradation_hotspot">Cooling Degradation Hotspot</option>
+          <option value="workload_redistribution">Workload Redistribution</option>
+        </select>
+        <button id="loadButton" type="button">Load</button>
+      </section>
+    </header>
+
+    <div id="statusLine" class="status-line">Ready.</div>
+
+    <section id="kpiGrid" class="kpis"></section>
+
+    <section class="layout">
+      <section class="card">
+        <div class="section-title">
+          <span>Rack GPU Pressure Table</span>
+          <span id="scenarioChip" class="chip">scenario</span>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Rack</th>
+                <th>Zone</th>
+                <th>GPU</th>
+                <th>GPU Pressure</th>
+                <th>Power kW</th>
+                <th>Inlet °C</th>
+                <th>Hotspot</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="rackTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="side-grid">
+        <section class="card">
+          <div class="section-title">Optimization Guidance</div>
+          <div id="guidanceText" class="guidance">Load a scenario to view guidance.</div>
+          <div class="boundary">
+            Scenario-driven decision support only. No live scheduling or automatic workload migration is performed in Phase 1.
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">Rack Pressure Visual Band</div>
+          <div id="rackBand" class="rack-band"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const scenarioSelect = document.getElementById("scenarioSelect");
+    const loadButton = document.getElementById("loadButton");
+    const statusLine = document.getElementById("statusLine");
+    const kpiGrid = document.getElementById("kpiGrid");
+    const rackTableBody = document.getElementById("rackTableBody");
+    const rackBand = document.getElementById("rackBand");
+    const guidanceText = document.getElementById("guidanceText");
+    const scenarioChip = document.getElementById("scenarioChip");
+
+    function scenarioLabel(value) {
+      return String(value || "scenario").replaceAll("_", " ");
+    }
+
+    function chipClass(value) {
+      return String(value || "").toLowerCase();
+    }
+
+    function kpiCard(label, value, note) {
+      return [
+        '<article class="card">',
+        '<div class="kpi-label">' + label + '</div>',
+        '<div class="kpi-value">' + value + '</div>',
+        note ? '<div class="kpi-note">' + note + '</div>' : '',
+        '</article>'
+      ].join('');
+    }
+
+    function sortRecords(records) {
+      const statusRank = { critical: 0, warning: 1, normal: 2 };
+      const pressureRank = { high: 0, elevated: 1, normal: 2 };
+
+      return records.slice().sort(function(a, b) {
+        return (statusRank[a.evaluated_status] ?? 9) - (statusRank[b.evaluated_status] ?? 9)
+          || (pressureRank[a.gpu_pressure_label] ?? 9) - (pressureRank[b.gpu_pressure_label] ?? 9)
+          || b.gpu_util_pct - a.gpu_util_pct
+          || b.inlet_temp_c - a.inlet_temp_c;
+      });
+    }
+
+    function renderDashboard(data) {
+      const summary = data.summary || {};
+      const records = sortRecords(data.rack_gpu_records || []);
+
+      scenarioChip.textContent = scenarioLabel(data.scenario_id);
+      statusLine.textContent = 'Scenario: ' + data.scenario_id + ' | Hall: ' + data.hall_id + ' | Racks: ' + data.rack_count;
+
+      kpiGrid.innerHTML = [
+        kpiCard('Average GPU', (summary.avg_gpu_util_pct ?? '-') + '%', 'Hall average'),
+        kpiCard('Maximum GPU', (summary.max_gpu_util_pct ?? '-') + '%', 'Rack ' + (summary.highest_gpu_rack_id ?? '-')),
+        kpiCard('High GPU Racks', summary.high_gpu_rack_count ?? '-', 'Pressure count'),
+        kpiCard('Critical Racks', summary.critical_rack_count ?? '-', 'Rules status'),
+        kpiCard('Warning Racks', summary.warning_rack_count ?? '-', 'Rules status'),
+        kpiCard('Total Power', (summary.total_power_kw ?? '-') + ' kW', 'Max ' + (summary.max_power_kw ?? '-') + ' kW'),
+        kpiCard('Hottest Rack', summary.hottest_rack_id ?? '-', 'Thermal focus'),
+        kpiCard('Highest GPU Rack', summary.highest_gpu_rack_id ?? '-', 'Workload focus')
+      ].join('');
+
+      rackTableBody.innerHTML = records.map(function(r) {
+        return [
+          '<tr>',
+          '<td><strong>' + r.rack_id + '</strong></td>',
+          '<td>' + r.zone_id + '</td>',
+          '<td>',
+          '<div>' + r.gpu_util_pct + '%</div>',
+          '<div class="bar-wrap"><div class="bar" style="width:' + Math.min(r.gpu_util_pct, 100) + '%"></div></div>',
+          '</td>',
+          '<td><span class="chip ' + chipClass(r.gpu_pressure_label) + '">' + r.gpu_pressure_label + '</span></td>',
+          '<td>' + r.power_kw + '</td>',
+          '<td>' + r.inlet_temp_c + '</td>',
+          '<td><span class="chip ' + chipClass(r.hotspot_risk) + '">' + r.hotspot_risk + '</span></td>',
+          '<td><span class="chip ' + chipClass(r.evaluated_status) + '">' + r.evaluated_status + '</span></td>',
+          '</tr>'
+        ].join('');
+      }).join('');
+
+      rackBand.innerHTML = records.map(function(r) {
+        return [
+          '<div class="rack-tile">',
+          '<div class="rack-title"><span>' + r.rack_id + '</span><span class="chip ' + chipClass(r.evaluated_status) + '">' + r.evaluated_status + '</span></div>',
+          '<div class="kpi-note">Zone: ' + r.zone_id + '</div>',
+          '<div class="kpi-note">GPU: ' + r.gpu_util_pct + '% | ' + r.gpu_pressure_label + '</div>',
+          '<div class="kpi-note">Temp: ' + r.inlet_temp_c + '°C | Hotspot: ' + r.hotspot_risk + '</div>',
+          '</div>'
+        ].join('');
+      }).join('');
+
+      guidanceText.textContent = summary.optimization_message || 'No guidance message returned.';
+    }
+
+    async function loadScenario() {
+      const scenarioId = scenarioSelect.value;
+      statusLine.textContent = 'Loading ' + scenarioId + '...';
+
+      try {
+        const response = await fetch('/gpu/screen/' + scenarioId, { headers: { 'Accept': 'application/json' } });
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error((data.error && data.error.message) || 'Request failed with status ' + response.status);
+        }
+
+        renderDashboard(data);
+      } catch (error) {
+        statusLine.textContent = 'Error: ' + error.message;
+        kpiGrid.innerHTML = '<article class="card error">Unable to load GPU screen data.</article>';
+        rackTableBody.innerHTML = '';
+        rackBand.innerHTML = '';
+        guidanceText.textContent = 'GPU screen data is unavailable. Confirm the API is running and the scenario ID is supported.';
+      }
+    }
+
+    loadButton.addEventListener('click', loadScenario);
+    scenarioSelect.addEventListener('change', loadScenario);
+    window.addEventListener('load', loadScenario);
+  </script>
+</body>
+</html>

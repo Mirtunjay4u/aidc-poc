@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 
 
 logging.basicConfig(
@@ -32,6 +32,7 @@ HEALTH_RESPONSE_PATH = TESTS_DIR / "health_response_v1.json"
 SUPPORTED_SCENARIOS_PATH = TESTS_DIR / "supported_scenarios_v1.json"
 CURRENT_SCENARIO_STATE_PATH = TESTS_DIR / "current_scenario_state_v1.json"
 DEFAULT_SCENARIO_ID = "baseline_normal_operation"
+UI_SCREEN_PATH = BASE_DIR / "ui" / "gpu_screen_v1.html"
 
 
 def load_json(path: Path):
@@ -100,6 +101,9 @@ def validate_required_files():
     load_json(HEALTH_RESPONSE_PATH)
     load_json(SUPPORTED_SCENARIOS_PATH)
     load_json(CURRENT_SCENARIO_STATE_PATH)
+
+    if not UI_SCREEN_PATH.exists():
+        raise FileNotFoundError(f"Missing UI file: {UI_SCREEN_PATH}")
 
     scenario_ids = get_supported_scenario_ids()
     log_event(
@@ -180,6 +184,19 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
             }
         },
     )
+
+
+@app.get("/gpu/screen-ui", include_in_schema=False)
+def get_gpu_screen_ui():
+    log_event(
+        "gpu_screen_ui_requested",
+        endpoint="/gpu/screen-ui",
+        method="GET",
+        status_code=200,
+        result="served",
+        message="GPU screen UI served",
+    )
+    return FileResponse(UI_SCREEN_PATH)
 
 
 @app.get("/health")

@@ -73,6 +73,13 @@ check_status "workload surge GPU screen" "/gpu/screen/ai_workload_surge" "200"
 check_json_field "workload surge GPU screen scenario id" "data.get('scenario_id') == 'ai_workload_surge'"
 check_json_field "workload surge GPU high rack count" "data.get('summary', {}).get('high_gpu_rack_count') == 4"
 
+check_status "GPU screen UI route" "/gpu/screen-ui" "200"
+if ! grep -q "AI Workload & GPU Resource Screen" /tmp/aidc_api_response.json; then
+  echo "[FAIL] GPU screen UI title missing"
+  exit 1
+fi
+echo "[PASS] GPU screen UI title present"
+
 check_status "unknown GPU screen scenario" "/gpu/screen/unknown_scenario" "404"
 check_json_field "unknown GPU screen error code" "data.get('error', {}).get('code') == 'unknown_scenario'"
 
