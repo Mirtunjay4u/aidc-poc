@@ -28,7 +28,7 @@ The purpose is to make the local demo more operationally credible by defining wh
 - unknown scenario request
 - API shutdown
 
-This document is a model and documentation artifact. It does not add new logging code by itself.
+This document began as the event model for Phase 1 observability. Structured event logging has now been implemented in api/app_v1.py and validated through runtime smoke testing.
 
 ## 3. Scope Boundary
 
@@ -198,7 +198,7 @@ The demo operator should be able to explain the runtime flow using the logs with
 
 ## 11. Implementation Guidance
 
-Current implementation already includes lightweight logging. Future logging improvements should:
+Current implementation now includes structured event logging in api/app_v1.py. Future logging improvements should continue to:
 
 - reuse the event names defined in this document
 - include scenario_id for scenario-specific events
@@ -223,9 +223,9 @@ Observability validation should check that the following are visible during runt
 
 ## 13. Next Recommended Step
 
-After this event model is reviewed, the next engineering step should be to decide whether to implement structured event logging in api/app_v1.py.
+Structured event logging has now been implemented and validated.
 
-Recommended future implementation task:
-- add structured log messages for scenario controller and GPU screen endpoint activity
+Recommended next implementation task:
+- define the separate GPU screen UI layout and operator interpretation model before dashboard implementation
 
-This should be done as a separate code task with runtime validation and smoke-test confirmation.
+The logging model should continue to be maintained as new endpoints, UI flows, or Omniverse integration paths are added.

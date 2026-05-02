@@ -1,7 +1,7 @@
 # Phase 1 Backend Status v1
 
 ## Scope status
-Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation, scenario control endpoints, and the separate GPU screen backend/API endpoint.
+Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA Brev environment. The backend remains file-backed and demo-oriented, but now includes repeatable startup automation, scenario control endpoints, the separate GPU screen backend/API endpoint, and structured API event logging.
 
 ## Task completion position
 - B-04 Build scenario controller: Completed for Phase 1 file-backed control scope.
@@ -18,7 +18,7 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 - Startup-time response file validation added
 - Structured unknown-scenario 404 response added
 - Structured internal 500 response added
-- Lightweight application logging added
+- Structured API event logging added and runtime-validated
 - Smoke-test automation added
 - Standardized API startup script added
 - File-backed scenario controller endpoints added
@@ -46,7 +46,8 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 
 ## Next focus
 - Keep smoke-test validation running after every API change.
-- Align documentation and tracker language to show GPU backend/API is complete while visual GPU dashboard UI remains open.
-- Create scenario_acceptance_matrix_v1.md to convert endpoint availability into verifiable scenario correctness.
-- Prepare API contract v2, thermal/power rationale, and observability event model before additional UI work.
+- Keep structured API event logging aligned as future endpoints or UI flows are added.
+- Define the separate GPU visual dashboard UI before implementation.
+- Create Omniverse scene specification v1 before any Santa Clara RTX authoring work.
+- Prepare the demo evidence pack after the next UI or integration milestone.
 - Do not start Omniverse integration until Santa Clara RTX workstation readiness and scene specification prerequisites are closed.

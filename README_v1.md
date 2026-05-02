@@ -11,10 +11,10 @@ Phase 1 backend/API prototype for synthetic AIDC scenario simulation, local API 
 - api/ - FastAPI application, API contract, and dependency file
 - scripts/ - startup and smoke-test automation
 - tests/ - generated mock API response files and current scenario state
-- docs/ - checkpoint, startup, runbook, and validation notes
+- docs/ - checkpoint, startup, runbook, validation, API contract, rationale, and observability notes
 
 ## Current status
-Phase 1 backend/API prototype is validated for local runtime demo in the NVIDIA Brev environment. The API now supports standardized startup, health/scenario reads, hall and rack response retrieval, file-backed scenario control, and a separate GPU screen backend/API response. The visual GPU dashboard UI is not yet built.
+Phase 1 backend/API prototype is validated for local runtime demo in the NVIDIA Brev environment. The API now supports standardized startup, health/scenario reads, hall and rack response retrieval, file-backed scenario control, a separate GPU screen backend/API response, and structured API event logging. The visual GPU dashboard UI is not yet built.
 
 ## Start API
 Run from Terminal 1:

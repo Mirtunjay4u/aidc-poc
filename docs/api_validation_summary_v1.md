@@ -50,5 +50,25 @@ The smoke-test script now validates:
 - Unknown hall summary scenario error handling
 - Unknown rack scenario error handling
 
+## Structured API event logging validation
+- Structured event logging is implemented in api/app_v1.py.
+- Runtime validation confirmed structured startup events:
+  - api_startup_initiated
+  - startup_validation_started
+  - startup_validation_passed
+  - api_ready
+- Runtime validation confirmed scenario controller events:
+  - scenario_current_requested
+  - scenario_start_requested
+  - scenario_started
+  - scenario_reset_requested
+  - scenario_reset_completed
+- Runtime validation confirmed GPU screen and negative-path events:
+  - gpu_screen_requested
+  - unknown_scenario_requested
+- Clean shutdown validation confirmed:
+  - api_shutdown_completed
+- Smoke-test automation passed after structured logging was added.
+
 ## Conclusion
-Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, and the separate GPU screen backend/API endpoint.
+Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, the separate GPU screen backend/API endpoint, scenario acceptance validation, and structured API event logging.
