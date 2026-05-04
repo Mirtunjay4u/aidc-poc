@@ -49,7 +49,7 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 ## Next focus
 - Keep smoke-test validation running after every API change.
 - Keep structured API event logging aligned as future endpoints or UI flows are added.
-- Perform browser-level visual review of the GPU screen UI shell and capture evidence.
-- Create Omniverse scene specification v1 before any Santa Clara RTX authoring work.
-- Prepare the demo evidence pack after the next UI or integration milestone.
-- Do not start Omniverse integration until Santa Clara RTX workstation readiness and scene specification prerequisites are closed.
+- Preserve browser-level GPU screen UI review evidence and use it as baseline before additional UI polish.
+- Omniverse Scene Specification v1 is complete and should be used as the authoring control document before Santa Clara RTX scene work.
+- Prepare the formal demo evidence pack with screenshots, smoke output, endpoint samples, structured logs, and fallback notes.
+- Do not start Omniverse authoring until Santa Clara RTX workstation access, user permissions, Omniverse toolchain readiness, and OpenUSD authoring path are confirmed.

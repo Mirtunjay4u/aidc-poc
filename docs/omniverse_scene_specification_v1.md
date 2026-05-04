@@ -7,7 +7,7 @@
 | Project | AIDC Phase 1 |
 | Document | Omniverse Scene Specification v1 |
 | Environment | NVIDIA Brev for backend/API; Santa Clara RTX workstation for Omniverse authoring |
-| Latest Git checkpoint | 61d4070 - List GPU screen UI in health response |
+| Latest Git checkpoint | 3ba5d56 - Add Omniverse scene specification |
 | Primary use case | AI Data Centre Blueprint on Omniverse for Santa Clara lab demonstration |
 | Supporting flow | Separate AI workload and GPU resource optimization screen |
 | Purpose | Define Omniverse scene structure, rack mapping, visual state model, telemetry binding approach, camera/storyboard plan, and authoring boundary before Santa Clara RTX scene work |

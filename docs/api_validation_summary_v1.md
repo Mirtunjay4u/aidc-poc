@@ -80,3 +80,10 @@ The smoke-test script now validates:
 
 ## Conclusion
 Phase 1 backend/API prototype is validated for local runtime demo in the Brev environment and now includes repeatable startup, scenario controller behavior, the separate GPU screen backend/API endpoint, first GPU screen UI shell, scenario acceptance validation, and structured API event logging.
+
+## Checkpoint extension - 3ba5d56
+
+Omniverse Scene Specification v1 has been added and validated as a documentation/specification artifact. The specification covers scene structure, R01-R08 rack identity mapping, visual state model, scenario visual mapping, telemetry-to-scene binding, overlay requirements, camera/storyboard plan, asset checklist, authoring prerequisites, validation criteria, and overclaim guardrails.
+
+This does not change the API runtime behavior. The API validation baseline remains the existing syntax checks, smoke test, scenario acceptance validation, GPU screen UI route validation, browser review evidence, and health endpoint inventory alignment.
+

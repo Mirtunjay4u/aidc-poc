@@ -53,3 +53,12 @@ Run from Terminal 2 while the API is running:
 - docs/phase1_backend_status_v1.md
 - docs/gpu_screen_scope_v1.md
 - docs/gpu_screen_ui_definition_v1.md
+
+## Current checkpoint extension - 3ba5d56
+
+Omniverse Scene Specification v1 is complete in `docs/omniverse_scene_specification_v1.md`.
+
+Current completed scope now includes the Brev backend/API foundation, scenario controller, scenario acceptance validation, structured logging, GPU screen backend/API, browser-reviewed GPU screen UI shell, health endpoint inventory alignment, and Omniverse scene specification.
+
+The next controlled focus is formal demo evidence packaging and Santa Clara RTX readiness follow-up. Omniverse authoring should not start until workstation access, permissions, Omniverse toolchain readiness, and OpenUSD authoring path are confirmed.
+
