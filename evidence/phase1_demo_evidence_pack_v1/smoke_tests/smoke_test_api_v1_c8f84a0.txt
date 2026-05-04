@@ -1,0 +1,35 @@
+Running API smoke test against http://127.0.0.1:8000
+[PASS] health endpoint -> 200
+[PASS] health status is healthy
+[PASS] scenarios endpoint -> 200
+[PASS] scenario count is 4
+[PASS] baseline hall summary -> 200
+[PASS] baseline hall summary scenario id
+[PASS] baseline GPU screen -> 200
+[PASS] baseline GPU screen scenario id
+[PASS] baseline GPU screen rack count
+[PASS] baseline GPU high rack count is zero
+[PASS] workload surge GPU screen -> 200
+[PASS] workload surge GPU screen scenario id
+[PASS] workload surge GPU high rack count
+[PASS] GPU screen UI route -> 200
+[PASS] GPU screen UI title present
+[PASS] unknown GPU screen scenario -> 404
+[PASS] unknown GPU screen error code
+[PASS] current scenario endpoint -> 200
+[PASS] current scenario has scenario id
+[PASS] start workload surge scenario -> 200
+[PASS] started scenario id is workload surge
+[PASS] started scenario status is running
+[PASS] current scenario after start -> 200
+[PASS] current scenario reflects workload surge
+[PASS] reset current scenario -> 200
+[PASS] reset scenario id is baseline
+[PASS] reset scenario status is reset
+[PASS] unknown scenario start -> 404
+[PASS] unknown scenario start error code
+[PASS] unknown summary scenario -> 404
+[PASS] unknown summary error code
+[PASS] unknown rack scenario -> 404
+[PASS] unknown rack error code
+Smoke test completed successfully

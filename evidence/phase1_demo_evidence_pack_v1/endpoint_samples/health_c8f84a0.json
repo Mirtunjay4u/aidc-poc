@@ -1,0 +1,16 @@
+{
+    "service": "aidc-poc-api",
+    "version": "v1",
+    "status": "healthy",
+    "available_endpoints": [
+        "/health",
+        "/hall/summary/{scenario_id}",
+        "/hall/racks/{scenario_id}",
+        "/scenarios",
+        "/scenario/current",
+        "/scenario/{scenario_id}/start",
+        "/scenario/reset",
+        "/gpu/screen/{scenario_id}",
+        "/gpu/screen-ui"
+    ]
+}
