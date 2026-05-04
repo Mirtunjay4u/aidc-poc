@@ -87,3 +87,11 @@ Omniverse Scene Specification v1 has been added and validated as a documentation
 
 This does not change the API runtime behavior. The API validation baseline remains the existing syntax checks, smoke test, scenario acceptance validation, GPU screen UI route validation, browser review evidence, and health endpoint inventory alignment.
 
+## Checkpoint extension - 6aba416
+
+Formal Phase 1 demo evidence pack has been added under `evidence/phase1_demo_evidence_pack_v1/`.
+
+Captured validation evidence includes `/health`, `/scenarios`, GPU screen samples for all four scenarios, hall summary samples for all four scenarios, hall rack samples for all four scenarios, GPU screen UI HTML/status evidence, smoke-test output, structured API event extracts, full runtime log, shutdown events, and post-shutdown process check evidence.
+
+The evidence confirms `/gpu/screen-ui` returned HTTP 200, `/health` lists `/gpu/screen-ui`, the smoke test completed successfully, and structured logs captured `api_ready`, `gpu_screen_requested`, `gpu_screen_ui_requested`, `scenario_started`, `scenario_reset_completed`, and `api_shutdown_completed`.
+

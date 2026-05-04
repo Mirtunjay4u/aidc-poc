@@ -60,5 +60,13 @@ Omniverse Scene Specification v1 is complete in `docs/omniverse_scene_specificat
 
 Current completed scope now includes the Brev backend/API foundation, scenario controller, scenario acceptance validation, structured logging, GPU screen backend/API, browser-reviewed GPU screen UI shell, health endpoint inventory alignment, and Omniverse scene specification.
 
-The next controlled focus is formal demo evidence packaging and Santa Clara RTX readiness follow-up. Omniverse authoring should not start until workstation access, permissions, Omniverse toolchain readiness, and OpenUSD authoring path are confirmed.
+Formal Phase 1 demo evidence packaging is now complete under `evidence/phase1_demo_evidence_pack_v1/`. The next controlled focus is evidence review, optional screenshot enrichment, GPU UI polish only if needed, and Santa Clara RTX readiness follow-up. Omniverse authoring should not start until workstation access, permissions, Omniverse toolchain readiness, and OpenUSD authoring path are confirmed.
+
+## Current checkpoint extension - 6aba416
+
+Formal Phase 1 demo evidence pack is complete in `evidence/phase1_demo_evidence_pack_v1/`.
+
+The evidence pack includes endpoint samples, smoke-test output, GPU screen UI HTML/status evidence, structured API runtime logs, shutdown evidence, fallback/access notes, evidence manifest, and screenshot placeholders for future browser captures.
+
+Current next focus is evidence review, optional screenshot enrichment, and continued Santa Clara RTX readiness follow-up.
 
