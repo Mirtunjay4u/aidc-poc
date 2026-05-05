@@ -52,4 +52,13 @@ Phase 1 backend/API prototype is functionally ready for local demo in the NVIDIA
 - Preserve browser-level GPU screen UI review evidence and committed evidence-pack baseline before additional UI polish.
 - Omniverse Scene Specification v1 is complete and should be used as the authoring control document before Santa Clara RTX scene work.
 - Formal demo evidence pack is complete under `evidence/phase1_demo_evidence_pack_v1/` with endpoint samples, smoke output, structured logs, shutdown evidence, fallback notes, and screenshot placeholders.
-- Do not start Omniverse authoring until Santa Clara RTX workstation access, user permissions, Omniverse toolchain readiness, and OpenUSD authoring path are confirmed.
+- Do not start Omniverse authoring until AWS GPU workstation readiness or Santa Clara RTX workstation readiness is confirmed, including user access, graphics driver stack, Omniverse/OpenUSD toolchain, GitHub/file transfer path, and remote review capability.
+
+## AWS interim workstation readiness
+
+AWS GPU Workstation Readiness Specification v1 is complete in `docs/aws_gpu_workstation_readiness_v1.md`.
+
+The AWS path is an interim Omniverse/OpenUSD authoring and remote demo option while Santa Clara RTX access is delayed. The preferred starting baseline is EC2 G5 class, preferably `g5.4xlarge` or higher, with NVIDIA A10G 24 GB or equivalent GPU, NVIDIA driver/graphics readiness, Amazon DCV or approved remote desktop, Omniverse Kit/USD Composer/OpenUSD tooling, GitHub/file transfer access, and cost-control/shutdown process.
+
+AIDC Omniverse authoring should begin only after AWS readiness validation passes.
+

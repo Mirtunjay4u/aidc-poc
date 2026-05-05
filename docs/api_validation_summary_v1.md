@@ -95,3 +95,11 @@ Captured validation evidence includes `/health`, `/scenarios`, GPU screen sample
 
 The evidence confirms `/gpu/screen-ui` returned HTTP 200, `/health` lists `/gpu/screen-ui`, the smoke test completed successfully, and structured logs captured `api_ready`, `gpu_screen_requested`, `gpu_screen_ui_requested`, `scenario_started`, `scenario_reset_completed`, and `api_shutdown_completed`.
 
+## Checkpoint extension - 7cd26fb
+
+AWS GPU Workstation Readiness Specification v1 has been added as a documentation and infrastructure-readiness artifact. This does not change API runtime behavior.
+
+The AWS readiness specification defines the minimum interim environment required before Omniverse authoring begins: EC2 G5-class GPU workstation, NVIDIA graphics driver stack, Amazon DCV or approved remote desktop, Omniverse Kit/USD Composer/OpenUSD tooling, GitHub/file transfer access, and validation gates for `nvidia-smi`, remote graphics, sample USD rendering, backend/API validation, and `/gpu/screen-ui` browser review on AWS.
+
+The API validation baseline remains the existing Brev-based syntax validation, scenario acceptance validation, smoke-test output, evidence pack, structured logs, and endpoint samples until AWS infrastructure is provisioned and separately validated.
+

@@ -68,5 +68,13 @@ Formal Phase 1 demo evidence pack is complete in `evidence/phase1_demo_evidence_
 
 The evidence pack includes endpoint samples, smoke-test output, GPU screen UI HTML/status evidence, structured API runtime logs, shutdown evidence, fallback/access notes, evidence manifest, and screenshot placeholders for future browser captures.
 
-Current next focus is evidence review, optional screenshot enrichment, and continued Santa Clara RTX readiness follow-up.
+Current next focus is AWS GPU workstation readiness validation, evidence review, optional screenshot enrichment, and continued Santa Clara RTX readiness follow-up.
+
+## Current checkpoint extension - 7cd26fb
+
+AWS GPU Workstation Readiness Specification v1 is complete in `docs/aws_gpu_workstation_readiness_v1.md`.
+
+This document defines the interim AWS GPU workstation path for Omniverse/OpenUSD authoring while Santa Clara RTX access is delayed. It covers the recommended EC2 G5-class baseline, preferred `g5.4xlarge` or higher starting point, NVIDIA A10G 24 GB or equivalent GPU expectation, NVIDIA driver/graphics stack, Amazon DCV or approved remote desktop, Omniverse Kit/USD Composer/OpenUSD tooling, GitHub/file transfer access, validation gates, security controls, cost-control expectations, and responsibility split.
+
+Omniverse authoring should not start until the AWS workstation passes readiness validation, including GPU visibility, remote graphics, Omniverse/OpenUSD launch, sample USD render, GitHub access, and file transfer validation.
 
