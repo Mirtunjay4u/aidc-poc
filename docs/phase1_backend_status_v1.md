@@ -62,3 +62,8 @@ The AWS path is an interim Omniverse/OpenUSD authoring and remote demo option wh
 
 AIDC Omniverse authoring should begin only after AWS readiness validation passes.
 
+## AWS Readiness Command Pack Status
+
+Checkpoint `c37e43e - Add AWS readiness validation command pack` adds `docs/aws_readiness_validation_command_pack_v1.md`.
+
+The command pack is documentation only. It does not change backend/API behavior. It keeps the next execution path focused on AWS readiness validation before Omniverse authoring.

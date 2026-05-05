@@ -78,3 +78,12 @@ This document defines the interim AWS GPU workstation path for Omniverse/OpenUSD
 
 Omniverse authoring should not start until the AWS workstation passes readiness validation, including GPU visibility, remote graphics, Omniverse/OpenUSD launch, sample USD render, GitHub access, and file transfer validation.
 
+## AWS Readiness Command Pack
+
+Latest documentation checkpoint: `c37e43e - Add AWS readiness validation command pack`.
+
+The AWS readiness validation command pack is available at:
+
+- `docs/aws_readiness_validation_command_pack_v1.md`
+
+This command pack is a pre-authoring validation guide only. It supports AWS GPU workstation readiness validation and does not start Omniverse authoring or create scene assets.

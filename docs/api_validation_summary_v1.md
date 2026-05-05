@@ -103,3 +103,8 @@ The AWS readiness specification defines the minimum interim environment required
 
 The API validation baseline remains the existing Brev-based syntax validation, scenario acceptance validation, smoke-test output, evidence pack, structured logs, and endpoint samples until AWS infrastructure is provisioned and separately validated.
 
+## AWS Readiness Command Pack Alignment
+
+Checkpoint `c37e43e - Add AWS readiness validation command pack` adds `docs/aws_readiness_validation_command_pack_v1.md`.
+
+This document defines the readiness validation sequence for AWS GPU workstation use before Omniverse authoring. It preserves the current gate: validate AWS infrastructure, repo reproducibility, AIDC runtime behavior, GPU screen browser review, evidence capture, and shutdown/cost control before any scene authoring begins.
