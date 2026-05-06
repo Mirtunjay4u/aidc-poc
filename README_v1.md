@@ -80,7 +80,9 @@ Omniverse authoring should not start until the AWS workstation passes readiness 
 
 ## AWS Readiness Command Pack
 
-Latest documentation checkpoint: `c37e43e - Add AWS readiness validation command pack`.
+Latest documentation alignment checkpoint: `9ba9756 - Align documentation for AWS command pack`.
+
+Command-pack creation checkpoint: `c37e43e - Add AWS readiness validation command pack`.
 
 The AWS readiness validation command pack is available at:
 
