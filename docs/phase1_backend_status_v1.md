@@ -67,3 +67,17 @@ AIDC Omniverse authoring should begin only after AWS readiness validation passes
 Command-pack creation checkpoint `c37e43e - Add AWS readiness validation command pack` adds `docs/aws_readiness_validation_command_pack_v1.md`. Documentation alignment checkpoint `9ba9756 - Align documentation for AWS command pack` updates the README, validation summary, and backend status references.
 
 The command pack is documentation only. It does not change backend/API behavior. It keeps the next execution path focused on AWS readiness validation before Omniverse authoring.
+
+## AWS Readiness Package Status
+
+Checkpoint `95134ea - Add AWS AIDC repo bootstrap note` completes the current AWS readiness package for pre-authoring execution control.
+
+Current AWS readiness package artifacts:
+
+- `docs/aws_gpu_workstation_readiness_v1.md`
+- `docs/aws_readiness_validation_command_pack_v1.md`
+- `docs/aws_gpu_workstation_infra_handoff_v1.md`
+- `docs/aws_aidc_repo_bootstrap_v1.md`
+- `evidence/aws_readiness_validation_evidence_v1/`
+
+The package is documentation and evidence-control only. It does not change backend/API behavior and does not authorize Omniverse authoring. The next execution path remains AWS provisioning, readiness validation, evidence capture, and only then controlled Omniverse authoring if all gates pass.

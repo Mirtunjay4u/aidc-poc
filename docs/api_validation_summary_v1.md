@@ -108,3 +108,11 @@ The API validation baseline remains the existing Brev-based syntax validation, s
 Command-pack creation checkpoint `c37e43e - Add AWS readiness validation command pack` adds `docs/aws_readiness_validation_command_pack_v1.md`. Documentation alignment checkpoint `9ba9756 - Align documentation for AWS command pack` updates the README, validation summary, and backend status references.
 
 This document defines the readiness validation sequence for AWS GPU workstation use before Omniverse authoring. It preserves the current gate: validate AWS infrastructure, repo reproducibility, AIDC runtime behavior, GPU screen browser review, evidence capture, and shutdown/cost control before any scene authoring begins.
+
+## AWS Readiness Package Alignment
+
+Checkpoint `95134ea - Add AWS AIDC repo bootstrap note` completes the current AWS readiness package alignment after the AWS infrastructure handoff and AWS readiness evidence template.
+
+The package now covers AWS workstation readiness requirements, command-pack execution, infrastructure/platform handoff, application-side repo bootstrap, evidence capture, `/gpu/screen-ui` browser validation on AWS, and shutdown/cost-control confirmation.
+
+This does not change API runtime behavior. The API validation baseline remains the Brev-validated syntax checks, scenario acceptance validation, smoke test, GPU screen API checks, and `/gpu/screen-ui` browser route validation until AWS is provisioned and separately validated.

@@ -89,3 +89,19 @@ The AWS readiness validation command pack is available at:
 - `docs/aws_readiness_validation_command_pack_v1.md`
 
 This command pack is a pre-authoring validation guide only. It supports AWS GPU workstation readiness validation and does not start Omniverse authoring or create scene assets.
+
+## AWS Readiness Package Alignment
+
+Latest AWS readiness package checkpoint: `95134ea - Add AWS AIDC repo bootstrap note`.
+
+The AWS readiness package now includes:
+
+- `docs/aws_gpu_workstation_readiness_v1.md`
+- `docs/aws_readiness_validation_command_pack_v1.md`
+- `docs/aws_gpu_workstation_infra_handoff_v1.md`
+- `docs/aws_aidc_repo_bootstrap_v1.md`
+- `evidence/aws_readiness_validation_evidence_v1/`
+
+This package supports infrastructure handoff, AWS repo bootstrap, readiness validation, evidence capture, and shutdown/cost-control confirmation.
+
+It does not start Omniverse authoring. AIDC Omniverse authoring remains blocked until AWS or Santa Clara readiness validation passes and evidence is reviewed.
