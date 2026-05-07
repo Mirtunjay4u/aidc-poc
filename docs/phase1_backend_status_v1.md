@@ -81,3 +81,12 @@ Current AWS readiness package artifacts:
 - `evidence/aws_readiness_validation_evidence_v1/`
 
 The package is documentation and evidence-control only. It does not change backend/API behavior and does not authorize Omniverse authoring. The next execution path remains AWS provisioning, readiness validation, evidence capture, and only then controlled Omniverse authoring if all gates pass.
+
+## AWS Readiness Package Index Status
+
+Checkpoint `64d659f - Add AWS readiness package index` adds `docs/aws_readiness_package_index_v1.md` as the single navigation point for the AWS readiness package.
+
+The package index maps readiness artifacts to leadership, infrastructure/platform owner, application/demo owner, and evidence reviewer usage. It also defines recommended execution order, evidence capture location, and the authoring gate.
+
+The package index is documentation and execution-control only. It does not change backend/API behavior and does not authorize Omniverse authoring. The next execution path remains AWS provisioning, readiness validation, evidence capture, and only then controlled Omniverse authoring if all gates pass.
+

@@ -105,3 +105,16 @@ The AWS readiness package now includes:
 This package supports infrastructure handoff, AWS repo bootstrap, readiness validation, evidence capture, and shutdown/cost-control confirmation.
 
 It does not start Omniverse authoring. AIDC Omniverse authoring remains blocked until AWS or Santa Clara readiness validation passes and evidence is reviewed.
+
+## AWS Readiness Package Index
+
+Latest AWS readiness package index checkpoint: `64d659f - Add AWS readiness package index`.
+
+The AWS readiness package index is available at:
+
+- `docs/aws_readiness_package_index_v1.md`
+
+This index is the single navigation point for leadership, infrastructure/platform owner, application/demo owner, and evidence reviewer. It explains the AWS readiness artifacts, role mapping, execution order, evidence location, and authoring gate.
+
+It does not start AWS execution or Omniverse authoring. Omniverse authoring remains blocked until AWS or Santa Clara readiness validation passes and evidence is reviewed.
+

@@ -116,3 +116,12 @@ Checkpoint `95134ea - Add AWS AIDC repo bootstrap note` completes the current AW
 The package now covers AWS workstation readiness requirements, command-pack execution, infrastructure/platform handoff, application-side repo bootstrap, evidence capture, `/gpu/screen-ui` browser validation on AWS, and shutdown/cost-control confirmation.
 
 This does not change API runtime behavior. The API validation baseline remains the Brev-validated syntax checks, scenario acceptance validation, smoke test, GPU screen API checks, and `/gpu/screen-ui` browser route validation until AWS is provisioned and separately validated.
+
+## AWS Readiness Package Index Alignment
+
+Checkpoint `64d659f - Add AWS readiness package index` adds `docs/aws_readiness_package_index_v1.md` as the single navigation point for the AWS readiness package.
+
+The index explains the readiness artifacts, role mapping, recommended execution order, evidence capture location, and authoring gate. It supports AWS validation planning only and does not change API runtime behavior.
+
+The API validation baseline remains the Brev-validated syntax checks, scenario acceptance validation, smoke test, GPU screen API checks, and `/gpu/screen-ui` browser route validation until AWS is provisioned and separately validated.
+
